@@ -1,0 +1,57 @@
+#main-container {
+    min-height: 100vh;
+}
+
+.default {
+    background-color: white;
+    color: black;
+
+}
+  
+.dark {
+    background-color: darkgray;
+    color: black;
+}
+
+#nav {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+    padding: 10px 20px;
+}
+
+#title {
+    
+}
+
+#question-icon {
+    height: 30px;
+    margin-left: auto;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+#settings-icon {
+    width: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+#main-content {
+    display: flex;
+    justify-content: center;
+}
+
+.panel {
+    margin-top: 40px;
+    padding: 10px 40px;
+    width: 300px;
+    position: absolute;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#close-icon {
+    width: 25px;
+    margin: 0 300px;
+    cursor: pointer;
+}

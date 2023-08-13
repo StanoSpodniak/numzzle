@@ -1,13 +1,21 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Game from "./Game/Game";
 import "./main.css";
 
 const Main = () => {
-    const [showRules, setShowRules] = useState(true);
+    const [showRules, setShowRules] = useState(false);
     const [showSettings, setShowSettigns] = useState(false);
 
     const [darkMode, setDarkMode] = useState(false);
     const [giveUp, setGiveUp] = useState(false);
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutsidePanel);
+    
+        return () => {
+          document.removeEventListener('click', handleClickOutsidePanel);
+        };
+    }, []);
 
     const handleStyleToggle = () => {
         setDarkMode(darkMode => !darkMode);
@@ -32,13 +40,29 @@ const Main = () => {
         setShowSettigns(false);
     }
 
+    const handleClickOutsidePanel = (event) => {
+        const rulesButton = document.getElementById("question-icon");
+        const settingsButton = document.getElementById("settings-icon");
+        const panel = document.getElementsByClassName("panel");
+
+        if (event.target !== rulesButton) {
+            if (event.target !== settingsButton) {
+                if (panel[0] && !panel[0].contains(event.target)) {
+                    setShowRules(false);
+                    setShowSettigns(false);
+                }
+            }
+        }
+    }
+
     const handleGiveUp = () => {
         setGiveUp(true);
+        setShowSettigns(false);
     }
 
     return (
         <div id="main-container" className={darkMode ? "dark" : "default"}>
-            <div id="nav">
+            <div id="nav" className={darkMode ? "dark-nav" : "default-nav"}>
                 <h1 id="title">Numzzle</h1>
                 <img id="question-icon" src="icons/question.png" alt="question mark" onClick={handleRules} />
                 <img id="settings-icon" src="icons/settings.png" alt="settings" onClick={handleSettings} />
@@ -66,7 +90,7 @@ const Main = () => {
                         <h2>Options</h2>
                         <button onClick={handleStyleToggle}>Dark Mode</button>
                         <button>New Game</button>
-                        <button onClick={handleGiveUp}>Give Up</button>
+                        <button onClick={handleGiveUp}>Show solution</button>
                     </div>
                 }
                 <Game isGiveUp={giveUp} />

@@ -16,8 +16,15 @@
 #nav {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid gainsboro;
     padding: 10px 20px;
+}
+
+.default-nav {
+    border-bottom: 1px solid gainsboro;
+}
+
+.dark-nav {
+    border-bottom: 1px solid black;
 }
 
 #title {
@@ -48,6 +55,7 @@
     width: 300px;
     position: absolute;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white;
 }
 
 #close-icon {

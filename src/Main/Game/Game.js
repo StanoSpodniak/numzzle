@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from "react";
 import Problem from "./Problem";
 import "./game.css";
 
-const Game = ({ isGiveUp }) => {
+const Game = ({ isNewGame, isGiveUp }) => {
     const [firstProblem, setFirstProblem] = useState([]);
     const [secondProblem, setSecondProblem] = useState([]);
     const [thirdProblem, setThirdProblem] = useState([]);
@@ -11,8 +11,6 @@ const Game = ({ isGiveUp }) => {
     const [playNumbers, setPlayNumbers] = useState([]);
     const [clickedNumbers, setClickedNumbers] = useState([""]);
     const tileRefs = useRef([]);
-
-    const [giveUp, setGiveUp] = useState("play");
 
     useEffect(() => {
         setFirstProblem(Problem());
@@ -40,7 +38,7 @@ const Game = ({ isGiveUp }) => {
         } else {
             console.log("no data");
         }
-    }, [firstProblem, secondProblem, thirdProblem]);
+    },[firstProblem, secondProblem, thirdProblem]);
 
     useEffect(() => {
         let numbers = [...solution];
@@ -50,13 +48,29 @@ const Game = ({ isGiveUp }) => {
             [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
         }
         setPlayNumbers(numbers);
-    }, [solution])
+    },[solution]);
+
+    useEffect(() => {
+        if(isNewGame) {
+            handleNewGame();
+        }
+    },[isNewGame]);
 
     useEffect(() => {
         if(isGiveUp) {
             handleGiveUp();
         }
     },[isGiveUp]);
+
+    const handleNewGame = () => {
+        for(let i = 0; i < 9; i++) {
+            setClickedNumbers("");
+        }
+
+        setFirstProblem(Problem());
+        setSecondProblem(Problem());
+        setThirdProblem(Problem());
+    }
 
     const handleGiveUp = () => {
         for(let i = 0; i < 9; i++) {

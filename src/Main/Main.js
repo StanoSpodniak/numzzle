@@ -4,10 +4,11 @@ import "./main.css";
 
 const Main = () => {
     const [showRules, setShowRules] = useState(false);
-    const [showSettings, setShowSettigns] = useState(false);
+    const [showSettings, setShowSettings] = useState(false);
 
-    const [darkMode, setDarkMode] = useState(false);
+    const [newGame, setNewGame] = useState(false);
     const [giveUp, setGiveUp] = useState(false);
+    const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
         document.addEventListener('click', handleClickOutsidePanel);
@@ -23,7 +24,7 @@ const Main = () => {
 
     const handleRules = () => {
         if(showSettings) {
-            setShowSettigns(false);
+            setShowSettings(false);
         }
         setShowRules(showRules => !showRules);
     };
@@ -32,12 +33,12 @@ const Main = () => {
         if(showRules) {
             setShowRules(false);
         }
-        setShowSettigns(showSettings => !showSettings);
+        setShowSettings(showSettings => !showSettings);
     };
 
     const handleClose = () => {
         setShowRules(false);
-        setShowSettigns(false);
+        setShowSettings(false);
     }
 
     const handleClickOutsidePanel = (event) => {
@@ -49,15 +50,29 @@ const Main = () => {
             if (event.target !== settingsButton) {
                 if (panel[0] && !panel[0].contains(event.target)) {
                     setShowRules(false);
-                    setShowSettigns(false);
+                    setShowSettings(false);
                 }
             }
         }
     }
 
+    const handleNewGame = () => {
+        setNewGame(true);
+        setShowSettings(false);
+
+        setTimeout(() => {
+            setNewGame(false);
+        }, 1000);
+    }
+
     const handleGiveUp = () => {
         setGiveUp(true);
-        setShowSettigns(false);
+        setShowSettings(false);
+
+        
+        setTimeout(() => {
+            setGiveUp(false);
+        }, 1000);
     }
 
     return (
@@ -89,11 +104,11 @@ const Main = () => {
                         <img id="close-icon" src="icons/close.png" alt="close" onClick={handleClose} />
                         <h2>Options</h2>
                         <button onClick={handleStyleToggle}>Dark Mode</button>
-                        <button>New Game</button>
+                        <button onClick={handleNewGame}>New Game</button>
                         <button onClick={handleGiveUp}>Show solution</button>
                     </div>
                 }
-                <Game isGiveUp={giveUp} />
+                <Game isNewGame={newGame} isGiveUp={giveUp} />
             </div>
         </div>
     );

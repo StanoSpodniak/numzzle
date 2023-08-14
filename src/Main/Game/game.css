@@ -1,4 +1,5 @@
 #game {
+    margin: 40px 0;
     text-align: center;
 }
 
@@ -33,8 +34,27 @@
     background-color: white;
 }
 
-#inventory {
+.submit-field {
+    height: 40px;
     margin: 40px auto;
+    align-items: center;
+}
+
+#submit-button {
+    width: 150px;
+    height: 40px;
+    background-color: white;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    font-size: 1.7em;
+}
+
+#submit-button:hover {
+    cursor: pointer;
+}
+
+#inventory {
+    margin: 20px auto;
     width: 80%;
     display: flex;
     flex-wrap: wrap;

@@ -2,6 +2,8 @@ import {useState, useEffect} from "react";
 import Game from "./Game/Game";
 import "./main.css";
 
+//Dark mode animation: https://www.youtube.com/watch?v=S-T9XoCMwt4 https://redstapler.co/pure-css-minimal-dark-mode-toggle-button/
+
 const Main = () => {
     const [showRules, setShowRules] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
@@ -87,7 +89,7 @@ const Main = () => {
                     <div className="panel">
                         <img id="close-icon" src="icons/close.png" alt="close" onClick={handleClose} />
                         <h2>How To Play?</h2>
-                        <h3>Solve three mathematical equations.</h3>
+                        <h3>Solve Three Mathematical Equations</h3>
                         <div id="rules">
                             <ol>
                                 <li><span style={{ fontWeight: "600" }}>Click</span> on the numbers to complete the equation.</li>
@@ -103,9 +105,12 @@ const Main = () => {
                     <div className="panel">
                         <img id="close-icon" src="icons/close.png" alt="close" onClick={handleClose} />
                         <h2>Options</h2>
-                        <button onClick={handleStyleToggle}>Dark Mode</button>
-                        <button onClick={handleNewGame}>New Game</button>
-                        <button onClick={handleGiveUp}>Show solution</button>
+                        <div id="settings-buttons">
+                            <button onClick={handleStyleToggle}>Dark Mode</button>
+                            <button onClick={handleNewGame}>New Game</button>
+                            <button onClick={handleGiveUp}>Show solution</button>            
+                            <button>Credits</button>
+                        </div>
                     </div>
                 }
                 <Game isNewGame={newGame} isGiveUp={giveUp} />

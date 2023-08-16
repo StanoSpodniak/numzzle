@@ -123,7 +123,7 @@ const Game = ({ isNewGame, isGiveUp }) => {
                 setGameIsOver(true);
                 setSubmitButtonText("New Game");
                 for(let i = 0; i < 9; i++) {
-                    tileRefs.current[i].style.border = "2px solid #bdf5bd";
+                    tileRefs.current[i].style.border = "3px solid #bdf5bd";
                     tileRefs.current[i].style.color = "#189a18";
                 }
             } else {
@@ -148,10 +148,10 @@ const Game = ({ isNewGame, isGiveUp }) => {
 
     const changeStyleToWrong = (index) => {
         for(let i = index; i < index + 3; i++) {
-            tileRefs.current[i].style.border = "2px solid #ff8080";
+            tileRefs.current[i].style.border = "3px solid #ff8080";
             tileRefs.current[i].style.color = "#e60000";
             setTimeout(() => {
-                tileRefs.current[i].style.border = "2px solid gainsboro";
+                tileRefs.current[i].style.border = "3px solid gainsboro";
                 tileRefs.current[i].style.color = "black";
             }, "2000");
         }
@@ -165,7 +165,7 @@ const Game = ({ isNewGame, isGiveUp }) => {
         setDisableSubmitButton(true);
         
         for(let i = 0; i < 9; i++) {
-            tileRefs.current[i].style.border = "2px solid gainsboro";
+            tileRefs.current[i].style.border = "3px solid gainsboro";
             tileRefs.current[i].style.color = "black";
         }
 
@@ -182,7 +182,7 @@ const Game = ({ isNewGame, isGiveUp }) => {
             setClickedNumbers(solution);
             inventoryTileRefs.current[i].disabled = true;
 
-            tileRefs.current[i].style.border = "2px solid #bdf5bd";
+            tileRefs.current[i].style.border = "3px solid #bdf5bd";
             tileRefs.current[i].style.color = "#189a18";
         }
     }
@@ -211,7 +211,7 @@ const Game = ({ isNewGame, isGiveUp }) => {
                     {clickedNumbers[2]}
                 </button>
                 <p className="item">=</p>
-                <p className="item result">{firstProblem.result}</p>
+                <p className="item-result">{firstProblem.result}</p>
             </div>
             <div className="playfield">
                 <button 
@@ -235,7 +235,7 @@ const Game = ({ isNewGame, isGiveUp }) => {
                     {clickedNumbers[5]}
                 </button>
                 <p className="item">=</p>
-                <p className="item result">{secondProblem.result}</p>
+                <p className="item-result">{secondProblem.result}</p>
             </div>
             <div className="playfield">
                 <button 
@@ -259,7 +259,7 @@ const Game = ({ isNewGame, isGiveUp }) => {
                     {clickedNumbers[8]}
                 </button>
                 <p className="item">=</p>
-                <p className="item result">{thirdProblem.result}</p>
+                <p className="item-result">{thirdProblem.result}</p>
             </div>
             <div className="submit-field">
                 <button id="submit-button" onClick={handleSubmit} disabled={disableSubmitButton}>{submitButtonText}</button>

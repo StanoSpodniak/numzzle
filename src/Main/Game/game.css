@@ -1,5 +1,5 @@
 #game {
-    margin: 40px 0;
+    margin: 20px 0;
     text-align: center;
 }
 
@@ -10,11 +10,16 @@
     grid-template-columns: repeat(7, 1fr);
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .item {
-    width: 40px;
+    width: 50px;
+    text-align: center;
+}
+
+.item-result {
+    text-align: left;
 }
 
 .result {
@@ -30,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     background-color: white;
 }
 
@@ -55,10 +60,49 @@
 
 #inventory {
     margin: 20px auto;
-    width: 80%;
+    width: 85%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
+}
+
+@media only screen and (min-width: 1000px) {
+    #game {
+        margin: 40px 0;
+    }
+    
+    .playfield {
+        width: 55%;
+        font-size: 2.3rem;
+    }
+
+    .item {
+        margin: 0 auto;
+    }
+
+    .submit-field {
+        height: 50px;
+        margin: 50px auto;
+    }
+
+    #submit-button {
+        width: 175px;
+        height: 50px;
+        border: 3px solid gainsboro;
+        font-size: 2.0rem;
+    }
+    
+    .tile {
+        height: 65px;
+        width: 65px;
+        font-size: 2.3rem;
+        border: 3px solid gainsboro;
+    }
+
+    #inventory {
+        width: 70%;
+        gap: 30px;
+    }
 }

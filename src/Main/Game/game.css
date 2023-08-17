@@ -3,9 +3,9 @@
     text-align: center;
 }
 
-.playfield {
+.playfield {    
     margin: 20px auto;
-    width: 80%;
+    width: 75%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     justify-content: center;
@@ -13,12 +13,8 @@
     font-size: 1.8rem;
 }
 
-.item {
-    width: 50px;
-    text-align: center;
-}
-
 .item-result {
+    width: 20px;
     text-align: left;
 }
 
@@ -37,6 +33,11 @@
     justify-content: center;
     font-size: 1.8rem;
     background-color: white;
+    cursor: pointer;
+}
+
+.tile:disabled {
+    cursor: default;
 }
 
 .submit-field {
@@ -58,6 +59,10 @@
     cursor: pointer;
 }
 
+#submit-button:disabled {
+    cursor: default;
+}
+
 #inventory {
     margin: 20px auto;
     width: 85%;
@@ -70,16 +75,13 @@
 
 @media only screen and (min-width: 1000px) {
     #game {
-        margin: 40px 0;
+        margin: 40px auto;
     }
     
     .playfield {
-        width: 55%;
+        width: 50%;
+        margin: 30px auto;
         font-size: 2.3rem;
-    }
-
-    .item {
-        margin: 0 auto;
     }
 
     .submit-field {

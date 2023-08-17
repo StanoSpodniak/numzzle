@@ -189,77 +189,79 @@ const Game = ({ isNewGame, isGiveUp }) => {
 
     return (
         <div id="game">
-            <div className="playfield">
-                <button 
-                    className="tile"
-                    ref={ref => (tileRefs.current[0] = ref)}
-                    onClick={() => handleDelete(0)}>
-                    {clickedNumbers[0]}
-                </button>
-                <p className="item">{firstProblem.mathSign}</p>
-                <button 
-                    className="tile"
-                    ref={ref => (tileRefs.current[1] = ref)}
-                    onClick={() => handleDelete(1)}>
-                    {clickedNumbers[1]}
-                </button>
-                <p className="item">{firstProblem.secondMathSign}</p>
-                <button 
-                    className="tile"
-                    ref={ref => (tileRefs.current[2] = ref)}
-                    onClick={() => handleDelete(2)}>
-                    {clickedNumbers[2]}
-                </button>
-                <p className="item">=</p>
-                <p className="item-result">{firstProblem.result}</p>
-            </div>
-            <div className="playfield">
-                <button 
-                    className="tile"
-                    ref={ref => (tileRefs.current[3] = ref)}
-                    onClick={() => handleDelete(3)}>
-                    {clickedNumbers[3]}
-                </button>
-                <p className="item">{secondProblem.mathSign}</p>
-                <button 
-                    className="tile"
-                    ref={ref => (tileRefs.current[4] = ref)}
-                    onClick={() => handleDelete(4)}>
-                    {clickedNumbers[4]}
-                </button>
-                <p className="item">{secondProblem.secondMathSign}</p>
-                <button 
-                    className="tile"
-                    ref={ref => (tileRefs.current[5] = ref)}
-                    onClick={() => handleDelete(5)}>
-                    {clickedNumbers[5]}
-                </button>
-                <p className="item">=</p>
-                <p className="item-result">{secondProblem.result}</p>
-            </div>
-            <div className="playfield">
-                <button 
-                    className="tile"
-                    ref={ref => (tileRefs.current[6] = ref)}
-                    onClick={() => handleDelete(6)}>
-                    {clickedNumbers[6]}
-                </button>
-                <p className="item">{thirdProblem.mathSign}</p>
-                <button 
-                    className="tile"
-                    ref={ref => (tileRefs.current[7] = ref)}
-                    onClick={() => handleDelete(7)}>
-                    {clickedNumbers[7]}
-                </button>
-                <p className="item">{thirdProblem.secondMathSign}</p>
-                <button 
-                    className="tile"
-                    ref={ref => (tileRefs.current[8] = ref)}
-                    onClick={() => handleDelete(8)}>
-                    {clickedNumbers[8]}
-                </button>
-                <p className="item">=</p>
-                <p className="item-result">{thirdProblem.result}</p>
+            <div id="playfield-container">
+                <div className="playfield">
+                    <button 
+                        className="tile"
+                        ref={ref => (tileRefs.current[0] = ref)}
+                        onClick={() => handleDelete(0)}>
+                        {clickedNumbers[0]}
+                    </button>
+                    <p className="item">{firstProblem.mathSign}</p>
+                    <button 
+                        className="tile"
+                        ref={ref => (tileRefs.current[1] = ref)}
+                        onClick={() => handleDelete(1)}>
+                        {clickedNumbers[1]}
+                    </button>
+                    <p className="item">{firstProblem.secondMathSign}</p>
+                    <button 
+                        className="tile"
+                        ref={ref => (tileRefs.current[2] = ref)}
+                        onClick={() => handleDelete(2)}>
+                        {clickedNumbers[2]}
+                    </button>
+                    <p className="item">=</p>
+                    <p className="item-result">{firstProblem.result}</p>
+                </div>
+                <div className="playfield">
+                    <button 
+                        className="tile"
+                        ref={ref => (tileRefs.current[3] = ref)}
+                        onClick={() => handleDelete(3)}>
+                        {clickedNumbers[3]}
+                    </button>
+                    <p className="item">{secondProblem.mathSign}</p>
+                    <button 
+                        className="tile"
+                        ref={ref => (tileRefs.current[4] = ref)}
+                        onClick={() => handleDelete(4)}>
+                        {clickedNumbers[4]}
+                    </button>
+                    <p className="item">{secondProblem.secondMathSign}</p>
+                    <button 
+                        className="tile"
+                        ref={ref => (tileRefs.current[5] = ref)}
+                        onClick={() => handleDelete(5)}>
+                        {clickedNumbers[5]}
+                    </button>
+                    <p className="item">=</p>
+                    <p className="item-result">{secondProblem.result}</p>
+                </div>
+                <div className="playfield">
+                    <button 
+                        className="tile"
+                        ref={ref => (tileRefs.current[6] = ref)}
+                        onClick={() => handleDelete(6)}>
+                        {clickedNumbers[6]}
+                    </button>
+                    <p className="item">{thirdProblem.mathSign}</p>
+                    <button 
+                        className="tile"
+                        ref={ref => (tileRefs.current[7] = ref)}
+                        onClick={() => handleDelete(7)}>
+                        {clickedNumbers[7]}
+                    </button>
+                    <p className="item">{thirdProblem.secondMathSign}</p>
+                    <button 
+                        className="tile"
+                        ref={ref => (tileRefs.current[8] = ref)}
+                        onClick={() => handleDelete(8)}>
+                        {clickedNumbers[8]}
+                    </button>
+                    <p className="item">=</p>
+                    <p className="item-result">{thirdProblem.result}</p>
+                </div>
             </div>
             <div className="submit-field">
                 <button id="submit-button" onClick={handleSubmit} disabled={disableSubmitButton}>{submitButtonText}</button>
